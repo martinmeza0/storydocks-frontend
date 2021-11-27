@@ -1,18 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react';
+import Modal from './Modal';
 
-const product = () => {
+const Products = (props) => {
+    const {img, title, price, description} = props 
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+    
     return (
         <>
-            <figure className="product">
-                <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="dadad"/>
-                <div>
-                    <h3> black coach</h3>
-                    <p>$10</p>
-                </div>
+            <div className="proyecto">
+                <img src={img} alt="" onClick={() => setModalIsOpen(true)}/>
+            </div>
+            <Modal open={modalIsOpen} >
+                <div className="overlay" onClick={() => setModalIsOpen(false)}>
+                    <div className='Modal' onClick={(e) => e.stopPropagation()}>
+                        <section className="header">
+                            <h3 className="titulo">{title}</h3>
+                            <span className="borrar material-icons" onClick={() => setModalIsOpen(false)}>close</span>
+                        </section>
+                        <section className="body">
+                            <img src={img} alt=""/>  
+                            <p className="descripcion">{description}</p>
+                            <p className="categorias">{price} </p>
 
-            </figure>
+                        </section>
+                    </div>
+                </div>
+            </Modal>
         </>
     )
 }
 
-export default product
+export default Products

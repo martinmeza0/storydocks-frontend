@@ -1,5 +1,104 @@
+:root {
+  --main-color: #ef233c;;
+  --second-color: #2a2a2a;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: #ddd;
+  font-family: 'Overpass', sans-serif;
+}
+header {
+  height: 60vh;
+  background: url('https://images.unsplash.com/photo-1627483262112-039e9a0a0f16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') center/100% no-repeat;
+}
+header img {
+  width: 100%
+  
+}
+nav {
+  width: 100vw;
+  padding: 10px;
+  z-index: 2;
+  text-align: right;
+  background-color: var(--second-color);
+}
+
+ul {
+  margin-right: 100px;
+}
+
+li {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 1.05rem;
+}
+
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover{
+  color: var(--main-color);
+}
+
+h1 {
+  color: #ffff;
+  padding: 20px;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.product {
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px -9px rgba(0,0,0,0.75);
+  background-color: #eee;
+  cursor: pointer;
+  transition: transform .2s ease;
+
+}
+
+.product:hover {
+  transform: scale(1.01);
+}
+
+.product img {
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: 0px 0px 20px -9px rgba(0,0,0,0.75);
+  width: 100%;
+}
+
+.info {
+  color: var(--second-color);
+  padding: 10px;
+  text-align: center;
+  
+}
+
+.price {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+
+section {
+  display: flex;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-gap: 20px;
+  justify-content: center;
+  align-content: center;
 }
