@@ -17,4 +17,4 @@ const update = (id, newObject) => {
     return request.then(response => response.data)
 }
 
-export default { getAllproducts, create, update }
+export default {getAllproducts, create, update }

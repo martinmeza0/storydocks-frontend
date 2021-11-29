@@ -1,14 +1,28 @@
-import './App.css';
+import React, {useState, useEffect} from 'react'
+import Product from './components/Product'
+import productServices from './services/products'
+import './css/App.css';
 
 function App() {
+
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    productServices
+      .getAllproducts()
+      .then(products =>{
+        setProducts(products)
+      })
+  }, [])
+
+
   return (
     <div className="App">
       <header>
         <nav>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/api/products">Contact</a></li>
-              <li><a href="/">Blog</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
             </ul>
         </nav>        
         <h1> Clothes Shop store </h1>
@@ -16,27 +30,15 @@ function App() {
 
       <main>
         <section>
-          <div className="product">
-              <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="dadad"/>
-              <div className="info">
-                  <h3> black coach</h3>
-                  <p className="price">$10</p>
-              </div>
-          </div>
-          <div className="product">
-              <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="dadad"/>
-              <div className="info">
-                  <h3> black coach</h3>
-                  <p className="price">$10</p>
-              </div>
-          </div>
-          <div className="product">
-              <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="dadad"/>
-              <div className="info">
-                  <h3> black coach</h3>
-                  <p className="price">$10</p>
-              </div>
-          </div>
+          {products.map((product, i) =>
+            <Product
+              key={i}
+              title={product.name}
+              img={product.image}              
+              price={product.price}
+              description={product.description}
+            />
+          )}
         </section>
       </main>
     </div>

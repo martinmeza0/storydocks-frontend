@@ -1,0 +1,98 @@
+.overlay { 
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(52,52,52, .6);
+    transition: all .2s linear;
+    animation-name: Overlay-animation;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+}
+
+@keyframes Overlay-animation{
+    from { opacity: .2;}
+    to {opacity: 1;}
+}
+
+.Modal {
+    position: absolute;
+    z-index: 4;
+    top: 20%;
+    left: 0;
+    right: 0;
+    width: 55vw;
+    bottom: 20%;
+    margin: auto;
+    background: none;
+    text-align: right;
+}
+
+.Modal__header{
+    display: flex;
+    background: none;
+    color: #fff;
+}
+.Modal__title{
+    display: block;
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+.Modal__body{
+    display: flex;
+    background-color: rgb(238, 238, 238);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: left;
+}
+.Modal__img {
+    width: 40%;
+}
+
+.Modal__content {
+    width: 60%;
+    padding-right: 5px;
+}
+
+.Modal__content hr{
+    margin: 30px 0;
+}
+
+.Modal__content h4 {
+    margin-bottom: 5px;
+}
+
+.Modal__description {
+    word-wrap: break-word;
+}
+
+.Modal__price {
+    font-size: 2rem;
+}
+
+.Modal__header button{
+    font-size: 1rem;
+    transform: scale(1.4);
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.Modal__header button:hover{
+    color: rgb(240, 18, 18);
+}
+
+.zoom {
+    transition: ease .2s;
+    cursor: zoom-in;
+
+}
+.zoom:active {
+    transform: scale(1.6);
+}

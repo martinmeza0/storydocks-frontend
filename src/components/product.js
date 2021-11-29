@@ -1,29 +1,37 @@
 import React, {useState} from 'react';
+import '../css/modal.css';
 import Modal from './Modal';
 
 const Products = (props) => {
-    const {img, title, price, description} = props 
+    const {title,img ,price, description} = props 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     
     return (
         <>
-            <div className="proyecto">
-                <img src={img} alt="" onClick={() => setModalIsOpen(true)}/>
+            <div className="product" onClick={() => setModalIsOpen(true)}>
+              <img src={img} alt=""/>
+              <div className="info">
+                  <h3>{title}</h3>
+                  <p className="price">{price}</p>
+              </div>
             </div>
             <Modal open={modalIsOpen} >
                 <div className="overlay" onClick={() => setModalIsOpen(false)}>
-                    <div className='Modal' onClick={(e) => e.stopPropagation()}>
-                        <section className="header">
-                            <h3 className="titulo">{title}</h3>
-                            <span className="borrar material-icons" onClick={() => setModalIsOpen(false)}>close</span>
+                    <article className='Modal' onClick={(e) => e.stopPropagation()}>
+                        <header className="Modal__header">
+                            <h3 className="Modal__title">{title}</h3>
+                            <button onClick={() => setModalIsOpen(false)}>X</button>
+                        </header>
+                        <section className="Modal__body">
+                            <img src={img} alt="" className="Modal__img zoom"/>  
+                            <div className="Modal__content">
+                                <h4>About this product</h4>
+                                <p className="Modal__description">{description}</p>
+                                <hr/>
+                                <p className="Modal__price">{price} </p>
+                            </div>
                         </section>
-                        <section className="body">
-                            <img src={img} alt=""/>  
-                            <p className="descripcion">{description}</p>
-                            <p className="categorias">{price} </p>
-
-                        </section>
-                    </div>
+                    </article>
                 </div>
             </Modal>
         </>
