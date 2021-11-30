@@ -6,15 +6,4 @@ const getAllproducts = () => {
     return request.then(response => response.data)
 }
 
-const create = newObject => {
-    const request = axios.post(apiUrl, newObject)
-    return request.then(response => response.data)
-   
-}
-
-const update = (id, newObject) => {
-    const request = axios.put(`${apiUrl}/${id}`, newObject)
-    return request.then(response => response.data)
-}
-
-export default {getAllproducts, create, update }
+export default {getAllproducts}

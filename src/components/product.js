@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../css/modal.css';
+import '../css/Modal.css';
 import Modal from './Modal';
 
 const Products = (props) => {
