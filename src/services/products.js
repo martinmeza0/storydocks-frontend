@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiUrl = 'https://stark-lowlands-86374.herokuapp.com/api/products'
+const apiUrl = 'https://storydots-api.herokuapp.com/api/products'
 
 const getAllproducts = () => {
     const request = axios.get(apiUrl)
